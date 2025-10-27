@@ -24,6 +24,7 @@
       <tr
         v-for="user in paginatedUsers"
         :key="user.id"
+        @click="openEditModal(user)"
         class="hover:bg-gray-50 cursor-pointer"
       >
         <td class="py-2 px-4 border">{{ user.company.name }}</td>
@@ -50,5 +51,5 @@ const store = useUsersStore()
 
 // Используем storeToRefs для реактивности
 const { paginatedUsers, sortField, sortOrder } = storeToRefs(store)
-const { setSortField, deleteUser } = store
+const { setSortField, openEditModal, deleteUser } = store
 </script>
